@@ -26,11 +26,6 @@ This project is packaged with Docker using the top-level `Dockerfile`.
 
 ## Build commands
 
-If you want to run the Streamlit UI locally, install dependencies first:
-
-```bash
-pip install -r requirements.txt
-```
 
 ### Build with a tag (recommended)
 
@@ -72,7 +67,7 @@ docker run -p 8000:8000 my-first-app
 - `-p 8000:8000` publishes container port 8000 to host port 8000.
 - Then you can access the app API at `http://localhost:8000`.
 
-> When deploying to Cloud Run, the service provides `PORT=8080` automatically. The Dockerfile now reads `PORT` and falls back to `8000` for local development.
+> The Dockerfile exposes port `8000` and defaults `PORT` to `8000` for local development. If an external environment sets `PORT` (for example Cloud Run), the app will use that value instead.
 
 ### Run in detached mode
 
@@ -92,15 +87,7 @@ docker run -p 8000:8000 <image-id>
 - Works if you built without `-t`.
 - Use `docker images` to find the image ID.
 
-### Run the Streamlit UI locally
 
-```bash
-streamlit run app.py
-```
-
-- This opens the UI in your browser.
-- Use the Game and Chatbot tabs to interact with the project.
-- The Chatbot will still require `GEMINI_API_KEY` in `.env`.
 
 ### Run the FastAPI server locally
 
@@ -109,7 +96,7 @@ uvicorn app:app --reload --host 0.0.0.0 --port 8000
 ```
 
 - This starts the unified FastAPI backend on port 8000.
-- The same `app.py` file now supports both API and Streamlit UI.
+
 
 ## Step-by-step: build and run the project
 
