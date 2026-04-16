@@ -10,7 +10,7 @@ greenlet==3.4.0
 h11==0.16.0
 idna==3.11
 lxml==6.0.2
-numpy==2.4.4
+numpy==1.26.4
 playwright==1.58.0
 pydantic==2.12.5
 pydantic_core==2.41.5
