@@ -72,6 +72,8 @@ docker run -p 8000:8000 my-first-app
 - `-p 8000:8000` publishes container port 8000 to host port 8000.
 - Then you can access the app API at `http://localhost:8000`.
 
+> When deploying to Cloud Run, the service provides `PORT=8080` automatically. The Dockerfile now reads `PORT` and falls back to `8000` for local development.
+
 ### Run in detached mode
 
 ```bash
