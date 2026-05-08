@@ -1,4 +1,3 @@
-
 from fastapi import FastAPI
 from chatbot.app import app as chatbot_app
 from game.app import app as game_app
